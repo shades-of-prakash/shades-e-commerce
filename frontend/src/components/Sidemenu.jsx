@@ -93,13 +93,10 @@ function MenuItem({ category, isSubMenu }) {
             {isExpanded && <p>{name}</p>}
           </div>
           {sub_categories && sub_categories.length > 0 && isExpanded && (
-            <img
+            <ion-icon
+              name="chevron-down-outline"
               className="dropdown_img"
-              src={`/assets/icons/${
-                isSubMenuOpen ? "chevron-top.svg" : "chevron-down.svg"
-              }`}
-              alt="expand"
-            />
+            ></ion-icon>
           )}
         </li>
       </Link>

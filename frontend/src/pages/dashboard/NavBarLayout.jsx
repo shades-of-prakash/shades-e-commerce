@@ -16,12 +16,11 @@ const NavBarLayout = () => {
     <div className="dashboard_navbar flex-space">
       <p>{currentPath}</p>
       <div className="nav_options flex-space">
-        <img
-          src={`/assets/icons/${isDark ? "dark.svg" : "light.svg"}`}
-          alt=""
+        <ion-icon
+          name={isDark ? "sunny-outline" : "moon-outline"}
           onClick={toggleTheme}
-        />
-        <img src="/assets/icons/notification.svg" alt="notification" />
+        ></ion-icon>
+        <ion-icon name="notifications-outline"></ion-icon>
         <div className="profile flex-space">
           <div
             className="pic "
