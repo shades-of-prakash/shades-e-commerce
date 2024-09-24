@@ -14,6 +14,7 @@
   --font-weight-500: 500;
   --font-weight-400: 400;
   --active: rgba(244, 244, 245);
+  --bread-crumb: rgba(255, 255, 255, 0.715);
   --text-hover: rgb(0, 0, 0);
   --box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -32,13 +33,15 @@
 } */
 
 .light {
-  --primary-color: white;
+  --primary-color: rgb(255, 255, 255);
   --secondary-color: black;
   --active: rgba(244, 244, 245);
   --accent-color: black;
   --border-2: rgba(0, 0, 0, 0.2);
   --border: rgba(0, 0, 0, 0.1);
   --text-hover: rgb(0, 0, 0);
+  --bread-crumb: rgba(0, 0, 0, 0.715);
+  --bread-active: rgba(0, 0, 0, 0.826);
 }
 
 .dark {
@@ -49,6 +52,8 @@
   --border-2: rgba(255, 255, 255, 0.2);
   --border: rgba(255, 255, 255, 0.1);
   --text-hover: rgb(255, 255, 255);
+  --bread-crumb: rgba(255, 255, 255, 0.715);
+  --bread-active: rgba(255, 255, 255, 0.826);
 }
 
 * {
@@ -57,7 +62,10 @@
   margin: 0;
   font-family: var(--inter);
 }
-
+#root {
+  max-height: 100dvh;
+  /* overflow: hidden; */
+}
 .flex {
   display: flex;
   align-items: center;
@@ -73,4 +81,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.flex-flex-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

@@ -34,14 +34,12 @@ const Sidemenu = () => {
       <div className={`sidemenu ${isExpanded ? "" : "sideMenuCollapsed"}`}>
         <div className="logo_container">
           <p className="logop">{isExpanded ? "SHADES" : "S"}</p>
-          <img
-            className="expander"
-            src={`/assets/icons/${
-              isExpanded ? "chevron-left.svg" : "chevron-right.svg"
-            }`}
-            alt="arrow"
+          <ion-icon
+            name={
+              isExpanded ? "chevron-back-outline" : "chevron-forward-outline"
+            }
             onClick={() => setIsExpanded((prev) => !prev)}
-          />
+          ></ion-icon>
         </div>
         <MenuItems categories={categories} />
       </div>
@@ -94,7 +92,9 @@ function MenuItem({ category, isSubMenu }) {
           </div>
           {sub_categories && sub_categories.length > 0 && isExpanded && (
             <ion-icon
-              name="chevron-down-outline"
+              name={
+                isSubMenuOpen ? "chevron-up-outline" : "chevron-down-outline"
+              }
               className="dropdown_img"
             ></ion-icon>
           )}
