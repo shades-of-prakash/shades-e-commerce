@@ -233,3 +233,50 @@ ion-icon {
     padding: 10px;
     min-height: 75dvh;
 }
+table {
+    width: inherit;
+    border-spacing: 0px;
+    border: 0.5px solid rgba(255, 255, 255, 0.183);
+    border-radius: 8px;
+    overflow: hidden;
+}
+thead {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(19, 19, 19);
+    color: rgb(104, 103, 103);
+}
+tbody {
+    width: inherit;
+    height: 30px;
+    /* background-color: var(--primary-color); */
+    text-align: center;
+    color: var(--secondary-color);
+}
+.product-table-header input {
+    width: 20px;
+    height: 20px;
+}
+/* .product-table-values td {
+    border-right: 1px solid white;
+}
+.product-table-header th {
+    border-right: 1px solid white;
+} */
+.product-table-header th,
+.product-table-values td {
+    text-align: center;
+    font-weight: 300;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.183);
+}
+.product-table-header th input[type="checkbox"] {
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+}
+.product-table-header th span {
+    vertical-align: middle;
+}
+tbody:last-child tr td {
+    border-bottom: none;
+}
