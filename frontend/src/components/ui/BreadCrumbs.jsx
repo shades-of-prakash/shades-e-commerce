@@ -1,9 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const BreadCrumbs = () => {
   const location = useLocation();
   const fullPath = location.pathname.split("/");
   const lastItem = fullPath[fullPath.length - 1];
+  const navigate = useNavigate();
   return (
     <div className="breadCrumbs">
       <div>
@@ -15,7 +16,16 @@ const BreadCrumbs = () => {
           if (item) {
             return (
               <React.Fragment key={index}>
-                <span className={active ? "breadActive" : ""}>{item}</span>
+                <span
+                  className={active ? "breadActive" : ""}
+                  onClick={() => {
+                    if (item !== "dashboard" && item !== lastItem) {
+                      navigate(item);
+                    }
+                  }}
+                >
+                  {item}
+                </span>
                 {active ? (
                   ""
                 ) : (
