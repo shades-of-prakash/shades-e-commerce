@@ -19,17 +19,13 @@ const Products = () => {
                 ]}
                 headerValues={[
                     {
-                        values: [
-                            "#123",
-                            "Full Cargo",
-                            "HighLander",
-                            "Cargo",
-                            "S,X,XL,XXL",
-                            2000,
-                            "XYX-Y-X-X",
-                            "In-stock",
-                            "Stock",
-                        ],
+                        id: "#124242",
+                        product: "Full Charge",
+                        brand: "HighLander",
+                        category: "Cargo",
+                        sku: "S,X,XL,XXL",
+                        stock: 123,
+                        status: "available",
                     },
                 ]}
                 headerClassName={"product-table-header"}

@@ -7,11 +7,14 @@ const Table = (TableValues) => {
         <table>
             <thead>
                 <tr className={headerClassName}>
+                    <th>
+                        <input type="checkbox" />
+                    </th>
                     {headers.map((header, index) => {
                         return (
                             <React.Fragment key={index}>
                                 <th>
-                                    {index === 0 && <input type="checkbox" />}
+                                    {/* {index === 0 && <input type="checkbox" />} */}
                                     <span>{header}</span>
                                 </th>
                             </React.Fragment>
@@ -23,9 +26,16 @@ const Table = (TableValues) => {
                 return (
                     <tbody key={index}>
                         <tr className={valuesClassName}>
-                            {values.values.map((value, index) => {
-                                return <td key={index}>{value}</td>;
-                            })}
+                            <th>
+                                <input type="checkbox" name="" id="" />
+                            </th>
+                            {Object.entries(values).map(
+                                ([key, value], index) => (
+                                    <td key={index} className={key}>
+                                        {value}
+                                    </td>
+                                )
+                            )}
                         </tr>
                     </tbody>
                 );
