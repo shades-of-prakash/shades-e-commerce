@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-
+import { useNavigation } from "../../hooks/UseNavigate";
 const Table = (TableValues) => {
     const navigate = useNavigate();
 
@@ -8,12 +8,11 @@ const Table = (TableValues) => {
         navigate("/dashboard/products/singleproduct");
     };
 
-    const { headers, headerValues, headerClassName, valuesClassName } =
-        TableValues;
+    const { headers, headerValues } = TableValues;
     return (
         <table>
             <thead>
-                <tr className={headerClassName}>
+                <tr>
                     <th>
                         <input type="checkbox" />
                     </th>
@@ -31,9 +30,7 @@ const Table = (TableValues) => {
             {headerValues.map((values, index) => {
                 return (
                     <tbody key={index}>
-                        <tr
-                            className={valuesClassName}
-                            onClick={handleRowClick}>
+                        <tr onClick={handleRowClick}>
                             <th>
                                 <input type="checkbox" name="" id="" />
                             </th>

@@ -30,8 +30,6 @@ const Products = () => {
                         status: "In Stock",
                     },
                 ]}
-                headerClassName={"product-table-header"}
-                valuesClassName={"product-table-values"}
             />
         </div>
     );
