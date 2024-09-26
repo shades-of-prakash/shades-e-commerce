@@ -33,8 +33,7 @@ const Table = (TableValues) => {
                     <tbody key={index}>
                         <tr
                             className={valuesClassName}
-                            onClick={handleRowClick}
-                        >
+                            onClick={handleRowClick}>
                             <th>
                                 <input type="checkbox" name="" id="" />
                             </th>
@@ -43,7 +42,7 @@ const Table = (TableValues) => {
                                     <td key={index} className={"table_" + key}>
                                         <span>{value}</span>
                                     </td>
-                                ),
+                                )
                             )}
                         </tr>
                     </tbody>

@@ -217,7 +217,7 @@ ion-icon {
 }
 
 .breadCrumbs p {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .breadCrumbs ion-icon {
@@ -246,7 +246,8 @@ ion-icon {
 table {
     width: inherit;
     border-spacing: 0px;
-    border: 0.5px solid rgba(255, 255, 255, 0.183);
+    /* border: 0.5px solid rgba(255, 255, 255, 0.183); */
+    border: 0.5px solid var(--border-2);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -256,8 +257,8 @@ thead {
     width: 100%;
     height: 50px;
     text-align: center;
-    background-color: rgb(19, 19, 19);
-    color: rgb(104, 103, 103);
+    background-color: var(--table-head-bgcolor);
+    color: var(--table-head-color);
 }
 
 tbody {
@@ -303,12 +304,12 @@ input[type="checkbox"] {
 }
 
 tbody tr:hover {
-    background-color: #242424;
+    background-color: var(--table-hover-color);
 }
 
 tbody:last-child tr td {
     border-bottom: none;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .table_category span {
@@ -319,8 +320,21 @@ tbody:last-child tr td {
 }
 
 .table_status span {
-    background-color: rgba(0, 128, 0, 0.2);
-    color: rgba(0, 128, 0, 0.6);
+    background-color: var(--available-bg);
+    color: var(--available-text);
     padding: 3px 8px;
     border-radius: 50px;
+    font-weight: 600;
+}
+.button_layout {
+    width: 100%;
+}
+.button_layout button {
+    margin-right: 50px;
+    padding: 10px;
+    width: 140px;
+    color: var(--secondary-color);
+    background-color: var(--active);
+    border: 1px solid var(--border-2);
+    border-radius: 8px;
 }
