@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext, useEffect } from "react";
-import "../utils/styles/dashBoard.css";
+import "../styles/dashBoard.css";
 import { categories } from "../utils/sideMenuCategories.js";
 import { Link, useLocation } from "react-router-dom";
 const SidemenuContext = createContext();

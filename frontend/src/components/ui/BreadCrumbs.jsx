@@ -10,7 +10,7 @@ const BreadCrumbs = () => {
         <div className="breadCrumbs">
             <div className="present_bread">
                 <div className="flex-center" onClick={goBack}>
-                    <ion-icon name="arrow-back-outline"></ion-icon>
+                <ion-icon name="arrow-back-outline"></ion-icon>
                 </div>
                 <p>
                     {lastItem[0].toUpperCase() +

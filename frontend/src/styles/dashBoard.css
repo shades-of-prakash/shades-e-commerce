@@ -218,16 +218,16 @@ ion-icon {
 .present_bread {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 2px;
 }
 .present_bread div {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     width: 24px;
     height: 24px;
     border-radius: 3px;
 }
 .present_bread ion-icon {
-    color: black;
+    color: var(--secondary-color);
 }
 .breadCrumbs p {
     font-size: 24px;

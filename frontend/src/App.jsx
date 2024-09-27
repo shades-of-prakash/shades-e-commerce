@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { useState } from "react";
-import "./utils/styles/globals.css";
+import "./styles/globals.css";
 import Layout from "./pages/dashboard/Layout.jsx";
 import { Navigate } from "react-router-dom";
 import LazyLoad from "./utils/LazyLoad.jsx";

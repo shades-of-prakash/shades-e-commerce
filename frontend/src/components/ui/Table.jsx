@@ -5,7 +5,9 @@ const Table = (TableValues) => {
     const navigate = useNavigate();
 
     const handleRowClick = () => {
-        navigate("/dashboard/products/singleproduct");
+        if(e.target && e.target.tagName==="INPUT"){
+            navigate("/dashboard/products/singleproduct");
+        }
     };
 
     const { headers, headerValues } = TableValues;
