@@ -5,10 +5,13 @@ const BreadCrumbs = () => {
     const location = useLocation();
     const fullPath = location.pathname.split("/");
     const lastItem = fullPath[fullPath.length - 1];
-    const { goToPath } = useNavigation();
+    const { goToPath, goBack } = useNavigation();
     return (
         <div className="breadCrumbs">
-            <div>
+            <div className="present_bread">
+                <div className="flex-center" onClick={goBack}>
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </div>
                 <p>
                     {lastItem[0].toUpperCase() +
                         lastItem.slice(1, lastItem.length)}
