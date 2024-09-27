@@ -226,8 +226,16 @@ ion-icon {
     height: 24px;
     border-radius: 3px;
 }
+
 .present_bread ion-icon {
     color: var(--secondary-color);
+
+}
+.present_bread ion-icon:hover{
+    background-color: var(--secondary-color);
+    color:var(--primary-color);
+    padding:3px;
+    border-radius: 4px;
 }
 .breadCrumbs p {
     font-size: 24px;

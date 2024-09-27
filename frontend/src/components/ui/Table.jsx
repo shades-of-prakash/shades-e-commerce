@@ -4,8 +4,8 @@ import { useNavigation } from "../../hooks/UseNavigate";
 const Table = (TableValues) => {
     const navigate = useNavigate();
 
-    const handleRowClick = () => {
-        if(e.target && e.target.tagName==="INPUT"){
+    const handleRowClick = (e) => {
+        if(e.target.tagName!=="INPUT"){
             navigate("/dashboard/products/singleproduct");
         }
     };
