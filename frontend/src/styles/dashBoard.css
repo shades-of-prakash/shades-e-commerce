@@ -213,7 +213,7 @@ ion-icon {
     color: var(--bread-crumb);
     padding: 15px;
     font-size: 14px;
-    gap: 10px;
+    gap: 14px;
 }
 .present_bread {
     display: flex;
@@ -228,16 +228,14 @@ ion-icon {
 }
 
 .present_bread ion-icon {
+    /* background-color: var(--secondary-color); */
     color: var(--secondary-color);
-
-}
-.present_bread ion-icon:hover{
-    background-color: var(--secondary-color);
-    color:var(--primary-color);
-    padding:3px;
-    border-radius: 4px;
+    padding: 3px;
+    border-radius: 50px;
+    cursor: pointer;
 }
 .breadCrumbs p {
+    color: var(--secondary-color);
     font-size: 24px;
 }
 

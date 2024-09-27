@@ -5,7 +5,7 @@ const Table = (TableValues) => {
     const navigate = useNavigate();
 
     const handleRowClick = (e) => {
-        if(e.target.tagName!=="INPUT"){
+        if (e.target.tagName !== "INPUT") {
             navigate("/dashboard/products/singleproduct");
         }
     };
