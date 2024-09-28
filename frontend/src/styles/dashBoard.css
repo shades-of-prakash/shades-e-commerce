@@ -169,6 +169,8 @@ ion-icon {
 }
 
 .profile {
+    width: 36px;
+    height: 36px;
     position: relative;
     gap: 10px;
 }
@@ -182,8 +184,8 @@ ion-icon {
 }
 
 .pic img {
-    width: inherit;
-    height: inherit;
+    width: 36px;
+    height: 36px;
     object-fit: cover;
 }
 
@@ -218,6 +220,7 @@ ion-icon {
 .present_bread {
     display: flex;
     align-items: center;
+    padding: 0px 8px;
     gap: 2px;
 }
 .present_bread div {
@@ -245,7 +248,7 @@ ion-icon {
 }
 
 .breadCrumbs span {
-    padding-right: 7px;
+    padding: 7px;
 }
 
 .breadActive {

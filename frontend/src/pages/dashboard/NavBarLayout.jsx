@@ -34,7 +34,7 @@ const NavBarLayout = () => {
                     <div
                         className="pic "
                         onClick={() => setIsProfileOpen((prev) => !prev)}>
-                        <img src="/assets/profile.jpg" alt="" />
+                        <img loading="lazy" src="/assets/profile.webp" alt="" />
                     </div>
                     {isProfileOpen && (
                         <div className="details">

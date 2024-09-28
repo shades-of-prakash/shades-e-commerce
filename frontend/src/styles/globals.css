@@ -43,8 +43,8 @@
     --text-hover: rgb(0, 0, 0);
     --bread-crumb: rgba(0, 0, 0, 0.715);
     --bread-active: rgba(0, 0, 0, 0.826);
-    --table-head-bgcolor: rgb(0, 0, 0);
-    --table-head-color: rgba(255, 255, 255);
+    --table-head-bgcolor: rgba(244, 244, 245);
+    --table-head-color: rgba(0, 0, 0);
     --table-hover-color: rgb(175, 175, 175);
     --available-text: rgba(9, 47, 9, 0.6);
     --available-bg: rgb(22, 168, 22);
