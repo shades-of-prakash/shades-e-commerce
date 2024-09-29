@@ -1,23 +1,23 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, {
+    useState,
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useCallback,
+} from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/dashBoard.css";
 import { categories } from "../utils/sideMenuCategories.js";
-import { Link, useLocation } from "react-router-dom";
+
 const SidemenuContext = createContext();
+
 const Sidemenu = () => {
     const [isExpanded, setIsExpanded] = useState(true);
     const [activeId, setActiveId] = useState(0);
     const location = useLocation();
 
-    useEffect(() => {
-        const currentPath = location.pathname.split("/").pop();
-        const currentCategory = findCategoryByPath(categories, currentPath);
-
-        if (currentCategory) {
-            setActiveId(currentCategory.id);
-        }
-    }, [location]);
-
-    const findCategoryByPath = (categories, path) => {
+    const findCategoryByPath = useCallback((categories, path) => {
         for (const category of categories) {
             if (
                 category.path === path ||
@@ -27,11 +27,24 @@ const Sidemenu = () => {
             }
         }
         return null;
-    };
+    }, []);
+
+    useEffect(() => {
+        const currentPath = location.pathname.split("/").pop();
+        const currentCategory = findCategoryByPath(categories, currentPath);
+
+        if (currentCategory) {
+            setActiveId(currentCategory.id);
+        }
+    }, [location, findCategoryByPath]);
+
+    const contextValue = useMemo(
+        () => ({ isExpanded, setIsExpanded, activeId, setActiveId }),
+        [isExpanded, activeId]
+    );
 
     return (
-        <SidemenuContext.Provider
-            value={{ isExpanded, setIsExpanded, activeId, setActiveId }}>
+        <SidemenuContext.Provider value={contextValue}>
             <div
                 className={`sidemenu ${isExpanded ? "" : "sideMenuCollapsed"}`}>
                 <div className="logo_container">
@@ -42,9 +55,8 @@ const Sidemenu = () => {
                                 ? "chevron-back-outline"
                                 : "chevron-forward-outline"
                         }
-                        onClick={() =>
-                            setIsExpanded((prev) => !prev)
-                        }></ion-icon>
+                        onClick={() => setIsExpanded((prev) => !prev)}
+                    />
                 </div>
                 <MenuItems categories={categories} />
             </div>
@@ -52,48 +64,54 @@ const Sidemenu = () => {
     );
 };
 
-function MenuItems({ categories, isSubMenu = false }) {
-    return (
-        <ul className={isSubMenu ? "subMenu" : "menuContainer"}>
-            {categories.map((category) => (
-                <MenuItem
-                    category={category}
-                    key={category.id}
-                    isSubMenu={isSubMenu}
-                />
-            ))}
-        </ul>
-    );
-}
+const MenuItems = React.memo(({ categories, isSubMenu = false }) => (
+    <ul className={isSubMenu ? "subMenu" : "menuContainer"}>
+        {categories.map((category) => (
+            <MenuItem
+                category={category}
+                key={category.id}
+                isSubMenu={isSubMenu}
+            />
+        ))}
+    </ul>
+));
 
-function MenuItem({ category, isSubMenu }) {
+const MenuItem = React.memo(({ category, isSubMenu }) => {
     const { name, path, svg, solid_svg, id, sub_categories } = category;
     const { isExpanded, setIsExpanded, activeId, setActiveId } =
         useContext(SidemenuContext);
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const isActive = activeId === id;
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         setActiveId(id);
         if (sub_categories && sub_categories.length > 0) {
             setIsExpanded(true);
-            setIsSubMenuOpen(!isSubMenuOpen);
+            setIsSubMenuOpen((prev) => !prev);
         }
-    };
+    }, [id, setActiveId, setIsExpanded, sub_categories]);
+
     return (
         <>
-            <Link
-                to={`/dashboard/${path}`}
-                style={{ color: "black", textDecoration: "none" }}>
-                <li
-                    className={`${isSubMenu ? "subMenuItem" : "menuItem"} ${
-                        isActive ? "menuItemActive" : ""
-                    }`}
-                    onClick={handleClick}>
+            <li
+                className={`${isSubMenu ? "subMenuItem" : "menuItem"} ${
+                    isActive ? "menuItemActive" : ""
+                }`}
+                onClick={handleClick}>
+                <Link
+                    to={`/dashboard/${path}`}
+                    style={{
+                        color: "black",
+                        textDecoration: "none",
+                        width: "100%",
+                        padding: "10px",
+                    }}>
                     <div className="category">
                         <ion-icon
+                            rel="preload"
                             name={isActive ? solid_svg : svg}
-                            className="ionicon"></ion-icon>
+                            className="ionicon"
+                        />
                         {isExpanded && <p>{name}</p>}
                     </div>
                     {sub_categories &&
@@ -105,10 +123,12 @@ function MenuItem({ category, isSubMenu }) {
                                         ? "chevron-up-outline"
                                         : "chevron-down-outline"
                                 }
-                                className="dropdown_img"></ion-icon>
+                                className="dropdown_img"
+                            />
                         )}
-                </li>
-            </Link>
+                </Link>
+            </li>
+
             {isSubMenuOpen &&
                 sub_categories &&
                 sub_categories.length > 0 &&
@@ -117,6 +137,6 @@ function MenuItem({ category, isSubMenu }) {
                 )}
         </>
     );
-}
+});
 
-export default Sidemenu;
+export default React.memo(Sidemenu);

@@ -16,7 +16,7 @@ const Table = (TableValues) => {
             <thead>
                 <tr>
                     <th>
-                        <input type="checkbox" />
+                        <input type="checkbox" aria-label="checkbox" />
                     </th>
                     {headers.map((header, index) => {
                         return (
@@ -34,7 +34,7 @@ const Table = (TableValues) => {
                     <tbody key={index}>
                         <tr onClick={handleRowClick}>
                             <th>
-                                <input type="checkbox" name="" id="" />
+                                <input type="checkbox" aria-label="checkbox" />
                             </th>
                             {Object.entries(values).map(
                                 ([key, value], index) => (

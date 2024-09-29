@@ -23,11 +23,13 @@
 }
 
 .logo_container .logop {
+    font-display: swap;
     font-weight: var(--font-weight-900);
     color: var(--secondary-color);
-    font-size: 24px;
-    letter-spacing: 2px;
-    padding: 23px;
+    font-size: 20px;
+    margin: 20px;
+    line-height: 1.2;
+    font-variation-settings: "wght" 800;
 }
 
 .logo_container ion-icon {
@@ -52,7 +54,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -60,12 +61,16 @@
 
 .menuItem .category p {
     color: var(--secondary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menuContainer .category {
     display: flex;
     align-items: center;
     gap: 10px;
+    overflow: hidden;
 }
 
 ion-icon {
@@ -146,8 +151,8 @@ ion-icon {
 .search {
     width: 300px;
     padding: 5px;
-    background-color: var(--active);
-    border: 1px solid var(--border);
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-2);
     border-radius: 8px;
     gap: 10px;
 }
@@ -239,7 +244,7 @@ ion-icon {
 }
 .breadCrumbs p {
     color: var(--secondary-color);
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .breadCrumbs ion-icon {
