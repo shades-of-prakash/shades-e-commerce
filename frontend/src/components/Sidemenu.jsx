@@ -40,13 +40,14 @@ const Sidemenu = () => {
 
     const contextValue = useMemo(
         () => ({ isExpanded, setIsExpanded, activeId, setActiveId }),
-        [isExpanded, activeId]
+        [isExpanded, activeId],
     );
 
     return (
         <SidemenuContext.Provider value={contextValue}>
             <div
-                className={`sidemenu ${isExpanded ? "" : "sideMenuCollapsed"}`}>
+                className={`sidemenu ${isExpanded ? "" : "sideMenuCollapsed"}`}
+            >
                 <div className="logo_container">
                     <h1 className="logop">{isExpanded ? "SHADES" : "S"}</h1>
                     <ion-icon
@@ -97,7 +98,8 @@ const MenuItem = React.memo(({ category, isSubMenu }) => {
                 className={`${isSubMenu ? "subMenuItem" : "menuItem"} ${
                     isActive ? "menuItemActive" : ""
                 }`}
-                onClick={handleClick}>
+                onClick={handleClick}
+            >
                 <Link
                     to={`/dashboard/${path}`}
                     style={{
@@ -105,7 +107,9 @@ const MenuItem = React.memo(({ category, isSubMenu }) => {
                         textDecoration: "none",
                         width: "100%",
                         padding: "10px",
-                    }}>
+                    }}
+                    className="flex-space"
+                >
                     <div className="category">
                         <ion-icon
                             rel="preload"

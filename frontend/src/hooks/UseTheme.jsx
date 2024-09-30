@@ -4,13 +4,13 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(false);
-
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     );
+    console.log(darkModeMediaQuery);
     setIsDark(darkModeMediaQuery.matches);
-
+    console.log(setIsDark);
     const handleChange = (e) => setIsDark(e.matches);
     darkModeMediaQuery.addEventListener("change", handleChange);
 

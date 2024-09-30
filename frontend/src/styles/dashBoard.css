@@ -58,7 +58,6 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
-
 .menuItem .category p {
     color: var(--secondary-color);
     white-space: nowrap;
@@ -126,7 +125,10 @@ ion-icon {
     border-radius: 8px;
     color: var(--secondary-color);
 }
-
+.subMenu .subMenuItem a .category p{
+    color:var(--secondary-color);
+    
+}
 .subMenuItem:hover {
     color: var(--secondary-color);
 }
