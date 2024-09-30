@@ -3,19 +3,24 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const storedTheme = localStorage.getItem("isDark");
+    return storedTheme === "true" ? true : false;
+  });
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)",
     );
-    console.log(darkModeMediaQuery);
     setIsDark(darkModeMediaQuery.matches);
-    console.log(setIsDark);
     const handleChange = (e) => setIsDark(e.matches);
     darkModeMediaQuery.addEventListener("change", handleChange);
 
     return () => darkModeMediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("isDark", isDark);
+  }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark((prev) => !prev);
