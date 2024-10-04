@@ -2,8 +2,9 @@ import { Suspense, lazy } from "react";
 import { useState } from "react";
 import "./styles/globals.css";
 import Layout from "./pages/dashboard/Layout.jsx";
-import { Navigate } from "react-router-dom";
+import { Navigate, useRouteError } from "react-router-dom";
 import LazyLoad from "./utils/LazyLoad.jsx";
+import Error404 from "./components/404Error.jsx";
 function dashboardLoading(path, fallback) {
   const Component = lazy(
     () => import(/* @vite-ignore */ `./pages/dashboard/${path}`),
@@ -60,6 +61,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Layout />,
+    errorElement: <Error404 />,
     children: [
       {
         index: true,
@@ -104,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "supportandhelp",
         element: <SupportAndHelp />,
+      },
+      {
+        path: "*",
+        element: <Error404 />,
       },
     ],
   },

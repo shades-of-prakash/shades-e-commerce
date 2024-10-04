@@ -359,3 +359,54 @@ tbody:last-child tr td {
     border: 1px solid var(--border-2);
     border-radius: 8px;
 }
+
+/* error page */
+.error_404_main{
+    height:100dvh;
+}
+.error_404{
+    width:100%;
+}
+.error_404 span{
+    font-size:250px;
+    color:var(--secondary-color);
+    padding:10px;
+    background:white;
+    /* border:1px solid var(--border-2); */
+    /* margin:10px; */
+    border-radius:8px;
+}
+
+.error_404 span:hover{
+    transform:rotate(180deg);
+    border:none;
+}
+.error_404 .zero{
+    width:300px;
+    height:350px;
+    animation:spin 4s linear infinite;
+    mix-blend-mode:multiply;
+}
+/* .error_404 .zero:hover{
+    animation:squeeze 4s linear infinite;
+    background:tranparent;
+}
+ */
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg);
+        background:transparent;
+        border:none;
+    } 
+}
+.error_content{
+    gap:16px;
+}
+.error_content button{
+    padding:10px;
+    width:140px;
+    color:var(--primary-color);
+    background-color:var(--secondary-color);
+    border:1px solid var(--border-2);
+    border-radius:8px;
+}

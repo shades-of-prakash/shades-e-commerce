@@ -33,7 +33,8 @@ const BreadCrumbs = () => {
                                         if (!active && item !== "dashboard") {
                                             goToPath(`${pathSoFar}`);
                                         }
-                                    }}>
+                                    }}
+                                >
                                     {item}
                                 </span>
                                 {active ? (
